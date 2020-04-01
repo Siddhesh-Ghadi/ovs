@@ -2,6 +2,7 @@
 
 set -ev
 
+df -h
 # Build and install sparse.
 #
 # Explicitly disable sparse support for llvm because some travis
@@ -13,6 +14,8 @@ git clone git://git.kernel.org/pub/scm/devel/sparse/sparse.git
 cd sparse
 make -j4 HAVE_LLVM= HAVE_SQLITE= install
 cd ..
+
+df -h
 
 pip3 install --disable-pip-version-check --user flake8 hacking
 pip3 install --user --upgrade docutils

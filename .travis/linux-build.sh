@@ -36,7 +36,9 @@ function install_kernel()
     # Download kernel sources. Try direct link on CDN failure.
     wget ${url} || wget ${url} || wget ${url/cdn/www}
 
+    df -h
     tar xvf linux-${version}.tar.xz > /dev/null
+    df -h
     pushd linux-${version}
     make allmodconfig
 
