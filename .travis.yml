@@ -82,7 +82,9 @@ matrix:
       compiler: gcc
       env: DPDK_SHARED=1
 
-script: ./.travis/${TRAVIS_OS_NAME}-build.sh $OPTS
+script: 
+  - df -i
+  - ./.travis/${TRAVIS_OS_NAME}-build.sh $OPTS
 
 notifications:
   email:
